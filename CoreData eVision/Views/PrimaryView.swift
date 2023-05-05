@@ -27,7 +27,7 @@ struct PrimaryView: View {
                 }
             case .second:
                 NavigationView() {
-                    SettingView()
+                    SettingsView()
                 }
             }
             CustomTabView(selectedTab: $selectedTab, showingCameraSheet: $showingCameraSheet) // passa lo stato a CustomTabView
