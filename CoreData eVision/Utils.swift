@@ -30,16 +30,18 @@ extension String {
     
     static func useGradient(for buildingName: String) -> LinearGradient {
         switch buildingName.first {
+        case "A":
+            return LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.5765748541039157, saturation: 1.0, brightness: 1.0, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 0.5080889966114458, saturation: 1.0, brightness: 1.0, opacity: 1.0), location: 0.9997596153846153)]), startPoint: UnitPoint.bottomLeading, endPoint: UnitPoint.topTrailing)
         case "B":
-            return LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.042127494352409645, saturation: 1.0, brightness: 0.8, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 0.08391966302710845, saturation: 1.0, brightness: 0.8, opacity: 1.0), location: 1.0)]), startPoint: UnitPoint.topTrailing, endPoint: UnitPoint.bottomLeading)
+            return LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.0941823936370482, saturation: 1.0, brightness: 1.0, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 1.0, saturation: 1.0, brightness: 1.0, opacity: 1.0), location: 0.9997596153846153)]), startPoint: UnitPoint.bottomLeading, endPoint: UnitPoint.topTrailing)
         case "C":
             return LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.3090202607304217, saturation: 1.0, brightness: 0.8, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 0.44886871705572295, saturation: 1.0, brightness: 0.8, opacity: 1.0), location: 1.0)]), startPoint: UnitPoint.topTrailing, endPoint: UnitPoint.bottomLeading)
         case "D":
-            return LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.0, saturation: 0.0006706513554216868, brightness: 0.8, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 0.26012448230421686, saturation: 0.42483998493975905, brightness: 0.8, opacity: 1.0), location: 1.0)]), startPoint: UnitPoint.bottomLeading, endPoint: UnitPoint.topTrailing)
+            return LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.0027002541415662652, saturation: 1.0, brightness: 0.537782967808735, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 0.0, saturation: 1.0, brightness: 1.0, opacity: 1.0), location: 0.9997596153846153)]), startPoint: UnitPoint.bottomLeading, endPoint: UnitPoint.topTrailing)
         case "E":
             return LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.6458725527108434, saturation: 1.0, brightness: 0.8, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 0.5383389024849398, saturation: 1.0, brightness: 0.8, opacity: 1.0), location: 1.0)]), startPoint: UnitPoint.topTrailing, endPoint: UnitPoint.bottomLeading)
         case "F":
-            return LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.1260383330195783, saturation: 1.0, brightness: 0.8, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 0.19531838290662654, saturation: 1.0, brightness: 0.8, opacity: 1.0), location: 1.0)]), startPoint: UnitPoint.topTrailing, endPoint: UnitPoint.bottomLeading)
+            return LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.0877406108810241, saturation: 1.0, brightness: 1.0, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 0.1512054075677711, saturation: 1.0, brightness: 1.0, opacity: 1.0), location: 0.9997596153846153)]), startPoint: UnitPoint.bottomLeading, endPoint: UnitPoint.topTrailing)
         default:
             return LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.746046686746988, saturation: 1.0, brightness: 0.8, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 0.8650431805346386, saturation: 1.0, brightness: 0.8, opacity: 1.0), location: 1.0)]), startPoint: UnitPoint.topTrailing, endPoint: UnitPoint.bottomTrailing)
         }

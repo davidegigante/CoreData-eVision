@@ -15,7 +15,9 @@ struct CustomTabView: View {
         HStack {
             Spacer()
             Button {
-                selectedTab = .first
+                withAnimation {
+                    selectedTab = .first
+                }
             } label: {
                 VStack {
                     Image(systemName: "house")
@@ -46,7 +48,9 @@ struct CustomTabView: View {
             .offset(y: -40)
             Spacer()
             Button {
-                selectedTab = .second
+                withAnimation {
+                    selectedTab = .second
+                }
             } label: {
                 VStack {
                     Image(systemName: "gearshape")

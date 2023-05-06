@@ -13,19 +13,47 @@ struct HomeView: View {
     @State private var showingCameraSheet = false 
     @State private var recognizedText: String?
     
+    // Custom comparison function
+    func compareBuildingNames(_ a: String, _ b: String) -> ComparisonResult {
+        if a.count == 1 && b.count == 1 {
+            if a > b {
+                return .orderedDescending
+            } else {
+                return .orderedAscending
+            }
+        } else if a.first! == b.first! {
+            if a.count > b.count {
+                return .orderedDescending
+            } else {
+                return .orderedAscending
+            }
+        } else {
+            if a.first! > b.first! {
+                return .orderedDescending
+            } else {
+                return .orderedAscending
+            }
+        }
+    }
+    
     @FetchRequest(entity: Building.entity(), sortDescriptors: []) var buildings: FetchedResults<Building>
+    
+    var sortedBuildings: [Building] {
+            return buildings.sorted()
+        }
     
     var body: some View {
         NavigationView {
             ScrollView {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        if self.buildings.filter({ $0.isPreferred }).count == 0 {
-                            // mostra la card "No one yet!" ...
-                        }
-                        ForEach(self.buildings.filter({ $0.isPreferred }), id: \.self) { building in
-                            NavigationLink(destination: BuildingView(building: building).environment(\.managedObjectContext, viewContext)) {
-                                BuildingCard(building: building)
+                        if sortedBuildings.filter({ $0.isPreferred }).count == 0 {
+                            OopsCard()
+                        } else {
+                            ForEach(sortedBuildings.filter({ $0.isPreferred }), id: \.self) { building in
+                                NavigationLink(destination: BuildingView(building: building).environment(\.managedObjectContext, viewContext)) {
+                                    BuildingCard(building: building)
+                                }
                             }
                         }
                     }
@@ -38,7 +66,7 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 30)], spacing: 30) {
-                    ForEach(self.buildings, id: \.self) { building in
+                    ForEach(self.sortedBuildings, id: \.self) { building in
                         NavigationLink(destination: BuildingView(building: building)
                             .environment(\.managedObjectContext, viewContext)) {
                             SmallBuildingCard(building: building)

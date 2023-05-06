@@ -21,13 +21,17 @@ struct PrimaryView: View {
         VStack {
             switch selectedTab {
             case .first:
-                NavigationView {
-                    HomeView()
-                        .environment(\.managedObjectContext, viewContext)
+                withAnimation {
+                    NavigationView {
+                        HomeView()
+                            .environment(\.managedObjectContext, viewContext)
+                    }
                 }
             case .second:
-                NavigationView() {
-                    SettingsView()
+                withAnimation {
+                    NavigationView() {
+                        SettingsView()
+                    }
                 }
             }
             CustomTabView(selectedTab: $selectedTab, showingCameraSheet: $showingCameraSheet) // passa lo stato a CustomTabView

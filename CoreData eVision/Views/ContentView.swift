@@ -18,7 +18,7 @@ struct ContentView: View {
             LoadingView()
                 .onAppear {
                     let setupCompleted = UserDefaults.standard.bool(forKey: "setupCompleted")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         checkSetup(setupCompleted)
                     }
                 }
@@ -204,6 +204,7 @@ struct ContentView: View {
             }
         } else {
             print("Setup already done!")
+            removeDuplicateBuildings(context: viewContext)
             if let savedDateFormatted = UserDefaults.standard.string(forKey: "currentDateFormatted") {
                 print("Saved date formatted: \(savedDateFormatted)")
                 print("Current date formatted: \(Date.getCurrentDateFormatted())")
@@ -234,6 +235,43 @@ struct ContentView: View {
                     }
                 }
             }
+        }
+    }
+    
+    func removeDuplicateBuildings(context: NSManagedObjectContext) {
+        let fetchRequest: NSFetchRequest<Building> = Building.fetchRequest()
+        print("I'm checking for equal buildings!!")
+
+        do {
+            let buildings = try context.fetch(fetchRequest)
+
+            // Crea un dizionario per tenere traccia del conteggio delle aule per ciascun edificio
+            var buildingCounts: [String: (building: Building, count: Int)] = [:]
+
+            // Conta il numero di aule per ciascun edificio
+            for building in buildings {
+                let buildingName = building.name ?? ""
+                let roomCount = building.rooms?.count ?? 0
+
+                // Se l'edificio è già nel dizionario, confronta il conteggio delle aule e tieni quello con più aule
+                if let existing = buildingCounts[buildingName], existing.count < roomCount {
+                    buildingCounts[buildingName] = (building, roomCount)
+                } else if buildingCounts[buildingName] == nil {
+                    buildingCounts[buildingName] = (building, roomCount)
+                }
+            }
+
+            // Rimuovi gli edifici duplicati
+            for building in buildings {
+                let buildingName = building.name ?? ""
+                if let existing = buildingCounts[buildingName], existing.building != building {
+                    context.delete(building)
+                }
+            }
+
+            try context.save()
+        } catch {
+            print("Error fetching buildings: \(error)")
         }
     }
     

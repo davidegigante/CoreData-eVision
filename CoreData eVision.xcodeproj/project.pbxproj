@@ -14,6 +14,7 @@
 		51088AE12A04F93600337576 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AE02A04F93600337576 /* HomeView.swift */; };
 		51088AE32A04FB3500337576 /* SmallBuildingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AE22A04FB3500337576 /* SmallBuildingCard.swift */; };
 		51088AE52A05185200337576 /* LectureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AE42A05185200337576 /* LectureCard.swift */; };
+		51088AE72A059BDE00337576 /* OpsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AE62A059BDE00337576 /* OpsCard.swift */; };
 		514147C92A01A7620098044F /* CoreData_eVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514147C82A01A7620098044F /* CoreData_eVisionApp.swift */; };
 		514147CB2A01A7620098044F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514147CA2A01A7620098044F /* ContentView.swift */; };
 		514147CD2A01A7630098044F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514147CC2A01A7630098044F /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		51088AE02A04F93600337576 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		51088AE22A04FB3500337576 /* SmallBuildingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBuildingCard.swift; sourceTree = "<group>"; };
 		51088AE42A05185200337576 /* LectureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCard.swift; sourceTree = "<group>"; };
+		51088AE62A059BDE00337576 /* OpsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpsCard.swift; sourceTree = "<group>"; };
 		514147C52A01A7620098044F /* CoreData eVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreData eVision.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		514147C82A01A7620098044F /* CoreData_eVisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData_eVisionApp.swift; sourceTree = "<group>"; };
 		514147CA2A01A7620098044F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				51088ADC2A04F73400337576 /* RoomCard.swift */,
 				51088AE22A04FB3500337576 /* SmallBuildingCard.swift */,
 				51088AE42A05185200337576 /* LectureCard.swift */,
+				51088AE62A059BDE00337576 /* OpsCard.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				514148172A01B1840098044F /* Building+CoreDataProperties.swift in Sources */,
 				514147D52A01A7630098044F /* CoreData_eVision.xcdatamodeld in Sources */,
 				51088AE52A05185200337576 /* LectureCard.swift in Sources */,
+				51088AE72A059BDE00337576 /* OpsCard.swift in Sources */,
 				514148212A01BE830098044F /* RoomView.swift in Sources */,
 				51088ADF2A04F90F00337576 /* SettingView.swift in Sources */,
 				514148152A01B1840098044F /* Room+CoreDataProperties.swift in Sources */,
