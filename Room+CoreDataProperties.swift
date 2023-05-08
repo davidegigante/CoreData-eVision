@@ -20,6 +20,7 @@ extension Room {
     @NSManaged public var id: String?
     @NSManaged public var lectures: NSSet?
     @NSManaged public var building: Building?
+    @NSManaged public var wasFree: Bool
     
     public var getName: String {
         name ?? "Unknown room name"
@@ -59,6 +60,13 @@ extension Room {
             }
             return true
         }
+    
+    func updateFreeStatus() {
+        let freeNow = isFreeNow()
+        if freeNow != wasFree {
+            wasFree = freeNow
+        }
+    }
 
 }
 

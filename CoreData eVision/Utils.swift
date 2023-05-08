@@ -47,6 +47,19 @@ extension String {
         }
         
     }
+    
+    static func useImage(for string: String) -> Image {
+        switch string.first! {
+        case "A":
+            return Image("Class")
+        case "L":
+            return Image("Laboratory")
+        case "S":
+            return Image("Hall")
+        default:
+            return Image("Hall")
+        }
+    }
 }
 
 extension Date {
@@ -64,8 +77,8 @@ extension Date {
         
         return date
     }
-
-
+    
+    
     // Utility function
     static func getCurrentDateFormatted() -> String {
         // Ottieni la data attuale nel formato "GG-MM-AAAA"

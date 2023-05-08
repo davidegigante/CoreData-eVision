@@ -18,14 +18,14 @@ struct OopsCard: View {
             Text("Oooops!")
                 .font(.title)
                 .fontWeight(.bold)
-            Text("It seems that you do not choose any building as favourite!")
+            Text("It seems that you did not choose any building as favourite!")
                 .opacity(0.7)
                 .lineLimit(3)
         }
         .foregroundColor(.white)
         .padding(16)
         .frame(width: 252, height: 300)
-        .background(LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.7674369352409639, saturation: 1.0, brightness: 1.0, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 1.0, saturation: 1.0, brightness: 1.0, opacity: 1.0), location: 1.0)]), startPoint: UnitPoint.bottom, endPoint: UnitPoint.top))
+        .background(LinearGradient(gradient: Gradient(stops: [Gradient.Stop(color: Color(hue: 0.0027002541415662652, saturation: 1.0, brightness: 0.537782967808735, opacity: 1.0), location: 0.0), Gradient.Stop(color: Color(hue: 0.0, saturation: 1.0, brightness: 1.0, opacity: 1.0), location: 0.9997596153846153)]), startPoint: UnitPoint.bottomLeading, endPoint: UnitPoint.topTrailing))
         .cornerRadius(30.0)
     }
 }

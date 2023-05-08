@@ -15,7 +15,7 @@ struct ContentView: View {
 
     var body: some View {
         if self.isLoading {
-            LoadingView()
+            IconView()
                 .onAppear {
                     let setupCompleted = UserDefaults.standard.bool(forKey: "setupCompleted")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -136,6 +136,7 @@ struct ContentView: View {
                                         }
                                         
                                         room.addToLectures(lecture)
+                                        room.wasFree = room.isFreeNow()
                                     } else {
                                         completion(false, "Error parsing JSON response")
                                     }
@@ -152,6 +153,7 @@ struct ContentView: View {
         }
         task.resume()
     }
+
     
     func getAllEvents(context: NSManagedObjectContext, completion: @escaping (Bool) -> Void) {
         let fetchRequest: NSFetchRequest<Building> = Building.fetchRequest()

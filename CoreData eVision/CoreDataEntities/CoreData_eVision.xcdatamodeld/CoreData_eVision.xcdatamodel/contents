@@ -23,6 +23,7 @@
     <entity name="Room" representedClassName="Room" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="wasFree" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="building" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Building" inverseName="rooms" inverseEntity="Building"/>
         <relationship name="lectures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lecture" inverseName="room" inverseEntity="Lecture"/>
     </entity>

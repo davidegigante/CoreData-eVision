@@ -12,10 +12,10 @@ struct RoomCard: View {
     
     var body: some View {
         HStack {
-            Image("Laboratorio")
+            String.useImage(for: room.getName)
                 .resizable()
                 .scaledToFit()
-                .frame(height: 50)
+                .frame(width: 50, height: 50)
                 .padding(.all)
             
             VStack(alignment: .leading, spacing: 5) {

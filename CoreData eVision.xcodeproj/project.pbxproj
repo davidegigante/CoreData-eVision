@@ -15,6 +15,8 @@
 		51088AE32A04FB3500337576 /* SmallBuildingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AE22A04FB3500337576 /* SmallBuildingCard.swift */; };
 		51088AE52A05185200337576 /* LectureCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AE42A05185200337576 /* LectureCard.swift */; };
 		51088AE72A059BDE00337576 /* OpsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AE62A059BDE00337576 /* OpsCard.swift */; };
+		51088AE92A07FBD400337576 /* NoLecturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AE82A07FBD400337576 /* NoLecturesView.swift */; };
+		51088AEC2A08F89A00337576 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AEB2A08F89A00337576 /* IconView.swift */; };
 		514147C92A01A7620098044F /* CoreData_eVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514147C82A01A7620098044F /* CoreData_eVisionApp.swift */; };
 		514147CB2A01A7620098044F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514147CA2A01A7620098044F /* ContentView.swift */; };
 		514147CD2A01A7630098044F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514147CC2A01A7630098044F /* Assets.xcassets */; };
@@ -65,6 +67,9 @@
 		51088AE22A04FB3500337576 /* SmallBuildingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallBuildingCard.swift; sourceTree = "<group>"; };
 		51088AE42A05185200337576 /* LectureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCard.swift; sourceTree = "<group>"; };
 		51088AE62A059BDE00337576 /* OpsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpsCard.swift; sourceTree = "<group>"; };
+		51088AE82A07FBD400337576 /* NoLecturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLecturesView.swift; sourceTree = "<group>"; };
+		51088AEA2A08EDF800337576 /* CoreData-eVision-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CoreData-eVision-Info.plist"; sourceTree = SOURCE_ROOT; };
+		51088AEB2A08F89A00337576 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		514147C52A01A7620098044F /* CoreData eVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreData eVision.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		514147C82A01A7620098044F /* CoreData_eVisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData_eVisionApp.swift; sourceTree = "<group>"; };
 		514147CA2A01A7620098044F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,6 +133,8 @@
 				51088AD72A04F4DB00337576 /* CustomTabView.swift */,
 				51088ADE2A04F90F00337576 /* SettingView.swift */,
 				51088AE02A04F93600337576 /* HomeView.swift */,
+				51088AE82A07FBD400337576 /* NoLecturesView.swift */,
+				51088AEB2A08F89A00337576 /* IconView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +174,7 @@
 		514147C72A01A7620098044F /* CoreData eVision */ = {
 			isa = PBXGroup;
 			children = (
+				51088AEA2A08EDF800337576 /* CoreData-eVision-Info.plist */,
 				51088AD92A04F58700337576 /* Cards */,
 				51088AD62A04F46D00337576 /* Views */,
 				514147F72A01AA920098044F /* CoreDataEntities */,
@@ -359,9 +367,11 @@
 				514148152A01B1840098044F /* Room+CoreDataProperties.swift in Sources */,
 				51088AE12A04F93600337576 /* HomeView.swift in Sources */,
 				51088ADD2A04F73400337576 /* RoomCard.swift in Sources */,
+				51088AE92A07FBD400337576 /* NoLecturesView.swift in Sources */,
 				514148132A01B1840098044F /* Lecture+CoreDataProperties.swift in Sources */,
 				514147D22A01A7630098044F /* Persistence.swift in Sources */,
 				514148162A01B1840098044F /* Building+CoreDataClass.swift in Sources */,
+				51088AEC2A08F89A00337576 /* IconView.swift in Sources */,
 				5141481F2A01BDF10098044F /* BuildingView.swift in Sources */,
 				5141481D2A01B5020098044F /* Utils.swift in Sources */,
 				514148122A01B1840098044F /* Lecture+CoreDataClass.swift in Sources */,
@@ -528,7 +538,7 @@
 		514147EF2A01A7640098044F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = PurpleIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -536,6 +546,8 @@
 				DEVELOPMENT_TEAM = U3ZPT8Y5VC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CoreData-eVision-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -557,7 +569,7 @@
 		514147F02A01A7640098044F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = PurpleIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -565,6 +577,8 @@
 				DEVELOPMENT_TEAM = U3ZPT8Y5VC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CoreData-eVision-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

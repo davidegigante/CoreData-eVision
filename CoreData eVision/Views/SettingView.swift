@@ -9,17 +9,17 @@ import SwiftUI
 
 struct SettingsView: View {
     @State private var notificationsEnabled = true
-    @State private var darkModeEnabled = false
+    @AppStorage("isDarkMode") private var isDarkModeOn = false
+    // per eliminarlo basta togliere questa variabile sia in wuedta view che in contentView
     
     var body: some View {
-        NavigationView {
             Form {
                 Section(header: Text("General")) {
                     Toggle(isOn: $notificationsEnabled) {
                         Text("Notifications")
                     }
                     
-                    Toggle(isOn: $darkModeEnabled) {
+                    Toggle(isOn: $isDarkModeOn) {
                         Text("Dark Mode")
                     }
                 }
@@ -37,9 +37,8 @@ struct SettingsView: View {
                         Text("Terms of Service")
                     }
                 }
-            }
-            .navigationBarTitle("Settings")
         }
+            .navigationBarTitle("Settings")
     }
 }
 

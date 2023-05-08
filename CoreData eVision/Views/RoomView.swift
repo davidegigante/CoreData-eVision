@@ -11,17 +11,25 @@ struct RoomView: View {
     let room: Room
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading){
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: .infinity), spacing: 30)], spacing: 20) {
-                    ForEach(self.room.getLectures, id: \.self) { lecture in
-                        LectureCard(lecture: lecture)
+        if !room.getLectures.isEmpty {
+            ScrollView {
+                VStack(alignment: .leading){
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: .infinity), spacing: 30)], spacing: 20) {
+                        ForEach(self.room.getLectures, id: \.self) { lecture in
+                            LectureCard(lecture: lecture)
+                        }
                     }
+                    
                 }
-                
+                .padding()
+                .navigationTitle(room.getName)
             }
-            .padding()
-            .navigationTitle(room.getName)
+        }
+        else {
+            VStack {
+                EmptyView(navigationTitle: "\(room.getName) - Lectures")
+                    .modifier(CardBackground())
+            }
         }
     }
     

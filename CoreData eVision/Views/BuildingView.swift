@@ -14,19 +14,23 @@ struct BuildingView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading){
+                Text("Actually free rooms")
+                    .font(.title)
+                    .bold()
+                    .padding(.bottom)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: .infinity), spacing: 30)], spacing: 20) {
-                    ForEach(building.getRooms) { room in
+                    ForEach(building.getRooms.filter({ $0.isFreeNow()})) { room in
                         NavigationLink(destination: RoomView(room: room)) {
                             RoomCard(room: room)
                         }
                     }
                 }
-                Text("Free rooms")
+                Text("All available rooms")
                     .font(.title)
                     .bold()
                     .padding(.vertical)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: .infinity), spacing: 30)], spacing: 20) {
-                    ForEach(building.getRooms.filter({ $0.isFreeNow()})) { room in
+                    ForEach(building.getRooms) { room in
                         NavigationLink(destination: RoomView(room: room)) {
                             RoomCard(room: room)
                         }
