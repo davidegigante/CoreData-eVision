@@ -17,6 +17,8 @@
 		51088AE72A059BDE00337576 /* OpsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AE62A059BDE00337576 /* OpsCard.swift */; };
 		51088AE92A07FBD400337576 /* NoLecturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AE82A07FBD400337576 /* NoLecturesView.swift */; };
 		51088AEC2A08F89A00337576 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AEB2A08F89A00337576 /* IconView.swift */; };
+		51088AEE2A09A92F00337576 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AED2A09A92F00337576 /* ImagePicker.swift */; };
+		51088AF22A0A955B00337576 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51088AF12A0A955B00337576 /* NotificationView.swift */; };
 		514147C92A01A7620098044F /* CoreData_eVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514147C82A01A7620098044F /* CoreData_eVisionApp.swift */; };
 		514147CB2A01A7620098044F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514147CA2A01A7620098044F /* ContentView.swift */; };
 		514147CD2A01A7630098044F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514147CC2A01A7630098044F /* Assets.xcassets */; };
@@ -68,8 +70,9 @@
 		51088AE42A05185200337576 /* LectureCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureCard.swift; sourceTree = "<group>"; };
 		51088AE62A059BDE00337576 /* OpsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpsCard.swift; sourceTree = "<group>"; };
 		51088AE82A07FBD400337576 /* NoLecturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLecturesView.swift; sourceTree = "<group>"; };
-		51088AEA2A08EDF800337576 /* CoreData-eVision-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CoreData-eVision-Info.plist"; sourceTree = SOURCE_ROOT; };
 		51088AEB2A08F89A00337576 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		51088AED2A09A92F00337576 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		51088AF12A0A955B00337576 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		514147C52A01A7620098044F /* CoreData eVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoreData eVision.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		514147C82A01A7620098044F /* CoreData_eVisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData_eVisionApp.swift; sourceTree = "<group>"; };
 		514147CA2A01A7620098044F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 				51088AE02A04F93600337576 /* HomeView.swift */,
 				51088AE82A07FBD400337576 /* NoLecturesView.swift */,
 				51088AEB2A08F89A00337576 /* IconView.swift */,
+				51088AF12A0A955B00337576 /* NotificationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,12 +178,12 @@
 		514147C72A01A7620098044F /* CoreData eVision */ = {
 			isa = PBXGroup;
 			children = (
-				51088AEA2A08EDF800337576 /* CoreData-eVision-Info.plist */,
 				51088AD92A04F58700337576 /* Cards */,
 				51088AD62A04F46D00337576 /* Views */,
 				514147F72A01AA920098044F /* CoreDataEntities */,
 				514147C82A01A7620098044F /* CoreData_eVisionApp.swift */,
 				5141481C2A01B5020098044F /* Utils.swift */,
+				51088AED2A09A92F00337576 /* ImagePicker.swift */,
 				514147CC2A01A7630098044F /* Assets.xcassets */,
 				514147CE2A01A7630098044F /* Preview Content */,
 			);
@@ -375,12 +379,14 @@
 				5141481F2A01BDF10098044F /* BuildingView.swift in Sources */,
 				5141481D2A01B5020098044F /* Utils.swift in Sources */,
 				514148122A01B1840098044F /* Lecture+CoreDataClass.swift in Sources */,
+				51088AEE2A09A92F00337576 /* ImagePicker.swift in Sources */,
 				514148102A01B1840098044F /* Professor+CoreDataClass.swift in Sources */,
 				514148112A01B1840098044F /* Professor+CoreDataProperties.swift in Sources */,
 				51088AE32A04FB3500337576 /* SmallBuildingCard.swift in Sources */,
 				51088ADB2A04F5AB00337576 /* BuildingCard.swift in Sources */,
 				514147CB2A01A7620098044F /* ContentView.swift in Sources */,
 				514147C92A01A7620098044F /* CoreData_eVisionApp.swift in Sources */,
+				51088AF22A0A955B00337576 /* NotificationView.swift in Sources */,
 				5141481B2A01B2A50098044F /* PrimaryView.swift in Sources */,
 				51088AD82A04F4DB00337576 /* CustomTabView.swift in Sources */,
 				514148192A01B24A0098044F /* LoadingView.swift in Sources */,
@@ -548,6 +554,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CoreData-eVision-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses camera to scan buildings.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -579,6 +586,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CoreData-eVision-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses camera to scan buildings.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -4,7 +4,7 @@
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>com.example.yourapp.checkFreeRooms</string>
+		<string>com.example.myApp.checkFreeRooms</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

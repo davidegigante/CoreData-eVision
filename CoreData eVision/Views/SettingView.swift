@@ -15,8 +15,8 @@ struct SettingsView: View {
     var body: some View {
             Form {
                 Section(header: Text("General")) {
-                    Toggle(isOn: $notificationsEnabled) {
-                        Text("Notifications")
+                    NavigationLink(destination: NotificationSettingsView()) {
+                        Text("Notification")
                     }
                     
                     Toggle(isOn: $isDarkModeOn) {
@@ -110,6 +110,7 @@ struct PrivacyPolicyView: View {
             }
             .navigationTitle("Privacy Policy")
             .padding(.horizontal)
+            .padding(.bottom)
         }
     }
 }
@@ -166,7 +167,7 @@ struct TermsOfServiceView: View {
                     .fixedSize(horizontal: false, vertical: true)
                 
             }
-            .navigationTitle("Privacy Policy")
+            .navigationTitle("Terms of Service")
             .padding(.horizontal)
             VStack(alignment: .leading, spacing: 16) {
                 
@@ -205,6 +206,7 @@ struct TermsOfServiceView: View {
                     .font(.body)
                     .foregroundColor(.primary)
                     .fixedSize(horizontal: false, vertical: true)
+                    .padding(.bottom)
             }
             .padding(.horizontal)
             .padding(.top)
