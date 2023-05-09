@@ -16,7 +16,7 @@ struct CustomTabView: View {
             Spacer()
             Button {
                 withAnimation {
-                    selectedTab = .first
+                    selectedTab = .home
                 }
             } label: {
                 VStack {
@@ -24,32 +24,50 @@ struct CustomTabView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
+                        .padding(.top)
                     Text("Home")
                         .font(.caption2)
                 }
-                .foregroundColor(selectedTab == .first ? .blue : .primary)
+                .foregroundColor(selectedTab == .home ? .blue : .primary)
+            }
+            .buttonStyle(TabButtonStyle())
+            Spacer()
+//            Button {
+//                showingCameraSheet = true // imposti lo stato a true al click del pulsante
+//            } label: {
+//                ZStack {
+//                    Circle()
+//                        .foregroundColor(Color("CardBackground"))
+//                        .frame(width: 80, height: 80)
+//                        .shadow(radius: 2)
+//                    Image(systemName: "camera.circle.fill")
+//                        .resizable()
+//                        .foregroundColor(.blue)
+//                        .frame(width: 72, height: 72)
+//                }
+//            }
+//            .offset(y: -40)
+            Button {
+                withAnimation {
+                    selectedTab = .camera
+                }
+            } label: {
+                VStack {
+                    Image(systemName: "camera")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .padding(.top)
+                    Text("Scan")
+                        .font(.caption2)
+                }
+                .foregroundColor(selectedTab == .camera ? .blue : .primary)
             }
             .buttonStyle(TabButtonStyle())
             Spacer()
             Button {
-                showingCameraSheet = true // imposti lo stato a true al click del pulsante
-            } label: {
-                ZStack {
-                    Circle()
-                        .foregroundColor(Color("CardBackground"))
-                        .frame(width: 80, height: 80)
-                        .shadow(radius: 2)
-                    Image(systemName: "camera.circle.fill")
-                        .resizable()
-                        .foregroundColor(.blue)
-                        .frame(width: 72, height: 72)
-                }
-            }
-            .offset(y: -40)
-            Spacer()
-            Button {
                 withAnimation {
-                    selectedTab = .second
+                    selectedTab = .settings
                 }
             } label: {
                 VStack {
@@ -57,10 +75,11 @@ struct CustomTabView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
+                        .padding(.top)
                     Text("Settings")
                         .font(.caption2)
                 }
-                .foregroundColor(selectedTab == .second ? .blue : .primary)
+                .foregroundColor(selectedTab == .settings ? .blue : .primary)
             }
             Spacer()
         }
@@ -69,8 +88,9 @@ struct CustomTabView: View {
 }
 
 enum Tab {
-    case first
-    case second
+    case home
+    case camera
+    case settings
 }
 
 struct TabButtonStyle: ButtonStyle {

@@ -37,7 +37,6 @@ extension Building {
         }
     }
     
-    
     func getRoomList() -> String {
         var str: String = ""
         let roomNames = getRooms.map { $0.getName }
@@ -48,6 +47,29 @@ extension Building {
             }
         }
         return str
+    }
+    
+    // Custom comparison function
+    func compareBuildingNames(_ a: String, _ b: String) -> ComparisonResult {
+        if a.count == 1 && b.count == 1 {
+            if a > b {
+                return .orderedDescending
+            } else {
+                return .orderedAscending
+            }
+        } else if a.first! == b.first! {
+            if a.count > b.count {
+                return .orderedDescending
+            } else {
+                return .orderedAscending
+            }
+        } else {
+            if a.first! > b.first! {
+                return .orderedDescending
+            } else {
+                return .orderedAscending
+            }
+        }
     }
 
 }

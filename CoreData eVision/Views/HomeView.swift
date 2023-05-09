@@ -9,32 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @State private var selectedTab: Tab = .first
+    @State private var selectedTab: Tab = .home
     @State private var showingCameraSheet = false 
     @State private var recognizedText: String?
-    
-    // Custom comparison function
-    func compareBuildingNames(_ a: String, _ b: String) -> ComparisonResult {
-        if a.count == 1 && b.count == 1 {
-            if a > b {
-                return .orderedDescending
-            } else {
-                return .orderedAscending
-            }
-        } else if a.first! == b.first! {
-            if a.count > b.count {
-                return .orderedDescending
-            } else {
-                return .orderedAscending
-            }
-        } else {
-            if a.first! > b.first! {
-                return .orderedDescending
-            } else {
-                return .orderedAscending
-            }
-        }
-    }
     
     @FetchRequest(entity: Building.entity(), sortDescriptors: []) var buildings: FetchedResults<Building>
     

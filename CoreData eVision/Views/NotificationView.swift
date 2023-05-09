@@ -25,38 +25,28 @@ struct NotificationSettingsView: View {
         formatter.timeStyle = .short
         return formatter
     }()
-    private let intervals = [30, 60, 120]
+    private let intervals = [1, 5, 10, 15, 30, 60, 120]
 
     var body: some View {
         Form {
             Section(header: Text("Orario delle notifiche")) {
                 DatePicker("Starting time", selection: $startTime, displayedComponents: [.hourAndMinute])
                 DatePicker("Ending time", selection: $endTime, displayedComponents: [.hourAndMinute])
-                //                    DatePicker("Inizio", selection: $startTime, displayedComponents: .hourAndMinute)
-                //                        .datePickerStyle(WheelDatePickerStyle())
-                //                        .labelsHidden()
-                //                        .frame(maxWidth: .infinity, alignment: .center)
-                //
-                //                    DatePicker("Fine", selection: $endTime, displayedComponents: .hourAndMinute)
-                //                        .datePickerStyle(WheelDatePickerStyle())
-                //                        .labelsHidden()
-                //                        .frame(maxWidth: .infinity, alignment: .center)
-                //                }
+                }
                 
-                Section(header: Text("Intervallo di tempo")) {
+                Section(header: Text("Time interval")) {
                     Picker("Intervallo", selection: $intervalPickerIndex) {
                         ForEach(0..<intervals.count) { index in
-                            Text("\(intervals[index]) minuti").tag(index)
+                            Text("\(intervals[index]) minutes").tag(index)
                         }
                     }
-                    .pickerStyle(WheelPickerStyle())
-                    .frame(maxWidth: .infinity, alignment: .center)
+                    .frame(alignment: .center)
                 }
                 
                 Button("Confirm") {
                     saveUserPreferences()
                 }
-            }
+        
         }
         .navigationTitle("Notification settings")
     }
