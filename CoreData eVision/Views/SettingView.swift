@@ -10,7 +10,6 @@ import SwiftUI
 struct SettingsView: View {
     @State private var notificationsEnabled = true
     @AppStorage("isDarkMode") private var isDarkModeOn = false
-    // per eliminarlo basta togliere questa variabile sia in wuedta view che in contentView
     
     var body: some View {
             Form {

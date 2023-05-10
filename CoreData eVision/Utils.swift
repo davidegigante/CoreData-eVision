@@ -51,13 +51,16 @@ extension String {
     static func useImage(for string: String) -> Image {
         switch string.first! {
         case "A":
-            return Image("Class")
+//            return Image("Class")
+            return Image(systemName: "book.closed")
         case "L":
-            return Image("Laboratory")
+//            return Image("Laboratory")
+            return Image(systemName: "lightbulb")
         case "S":
-            return Image("Hall")
+//            return Image("Hall")
+            return Image(systemName: "graduationcap")
         default:
-            return Image("Hall")
+            return Image(systemName: "graduationcap")
         }
     }
 }
@@ -71,10 +74,6 @@ extension Date {
         let components = calendar.dateComponents([.year, .month, .day], from: Date())
         let dateString = String(format: "%04d-%02d-%02d %@", components.year!, components.month!, components.day!, string)
         let date = dateFormatter.date(from: dateString)
-        
-        // Aggiungi due ore alla data
-        // date = calendar.date(byAdding: .hour, value: 2, to: date!)
-        
         return date
     }
     
@@ -92,4 +91,29 @@ extension Date {
     }
 }
 
+// UserDefaults extensions for storing and retrieving user preferences
+extension UserDefaults {
+    func setStartTime(_ date: Date) {
+        set(date, forKey: "startTime")
+    }
 
+    func getStartTime() -> Date {
+        return object(forKey: "startTime") as? Date ?? Date()
+    }
+
+    func setEndTime(_ date: Date) {
+        set(date, forKey: "endTime")
+    }
+
+    func getEndTime() -> Date {
+        return object(forKey: "endTime") as? Date ?? Date()
+    }
+
+    func setIntervalIndex(_ index: Int) {
+        set(index, forKey: "intervalPickerIndex")
+    }
+
+    func getIntervalIndex() -> Int {
+        return integer(forKey: "intervalPickerIndex")
+    }
+}

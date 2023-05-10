@@ -34,7 +34,6 @@ struct RoomCard: View {
                             .font(.subheadline)
                     }
                 }
-            .padding()
             
             Spacer()
             Image(systemName: "chevron.right")

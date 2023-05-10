@@ -20,7 +20,6 @@ struct SmallBuildingCard: View {
             Text("Building \(building.getName)")
                 .font(.headline)
                 .fontWeight(.bold)
-            //                .blendMode(.overlay)
             if building.getRooms.count > 1 {
                 Text("\(building.getRooms.count) rooms")
                     .opacity(0.7)

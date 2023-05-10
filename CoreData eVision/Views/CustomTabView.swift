@@ -32,21 +32,6 @@ struct CustomTabView: View {
             }
             .buttonStyle(TabButtonStyle())
             Spacer()
-//            Button {
-//                showingCameraSheet = true // imposti lo stato a true al click del pulsante
-//            } label: {
-//                ZStack {
-//                    Circle()
-//                        .foregroundColor(Color("CardBackground"))
-//                        .frame(width: 80, height: 80)
-//                        .shadow(radius: 2)
-//                    Image(systemName: "camera.circle.fill")
-//                        .resizable()
-//                        .foregroundColor(.blue)
-//                        .frame(width: 72, height: 72)
-//                }
-//            }
-//            .offset(y: -40)
             Button {
                 withAnimation {
                     selectedTab = .camera
