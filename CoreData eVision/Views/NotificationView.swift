@@ -33,20 +33,22 @@ struct NotificationSettingsView: View {
     private let intervals = [1, 5, 15, 30, 60, 120, 180]
     
     var canSave: Bool {
-        let defaultStartTime = UserDefaults.standard.getStartTime()
-        let defaultEndTime = UserDefaults.standard.getEndTime()
+//        let defaultStartTime = UserDefaults.standard.getStartTime()
+//        let defaultEndTime = UserDefaults.standard.getEndTime()
         let defaultIntervalIndex = UserDefaults.standard.getIntervalIndex()
-        return startHour != calendar.component(.hour, from: defaultStartTime) ||
-            startMinute != calendar.component(.minute, from: defaultStartTime) ||
-            endHour != calendar.component(.hour, from: defaultEndTime) ||
-            endMinute != calendar.component(.minute, from: defaultEndTime) ||
-            intervalPickerIndex != defaultIntervalIndex
+
+        return startHour != calendar.component(.hour, from: startTime) ||
+               startMinute != calendar.component(.minute, from: startTime) ||
+               endHour != calendar.component(.hour, from: endTime) ||
+               endMinute != calendar.component(.minute, from: endTime) ||
+               intervalPickerIndex != defaultIntervalIndex
     }
+
     
     
     private var canReset: Bool {
-        let defaultStartTime = UserDefaults.standard.getStartTime()
-        let defaultEndTime = UserDefaults.standard.getEndTime()
+        _ = UserDefaults.standard.getStartTime()
+        _ = UserDefaults.standard.getEndTime()
         let defaultIntervalIndex = UserDefaults.standard.getIntervalIndex()
         let currentStartTime = calendar.date(bySettingHour: startHour, minute: startMinute, second: 0, of: Date())!
         let currentEndTime = calendar.date(bySettingHour: endHour, minute: endMinute, second: 0, of: Date())!
@@ -54,6 +56,9 @@ struct NotificationSettingsView: View {
             endTime != currentEndTime ||
             intervalPickerIndex != defaultIntervalIndex
     }
+    
+    @State private var selectedStartHour: Int = 0
+    @State private var selectedStartMinute: Int = 0
     
     var body: some View {
         Form {
@@ -70,39 +75,69 @@ struct NotificationSettingsView: View {
             
             Section(header: Text("Notification times")) {
                 DatePicker("Starting time", selection: $startTime, displayedComponents: [.hourAndMinute])
+                    .onChange(of: startTime) { newStartTime in
+                        selectedStartHour = calendar.component(.hour, from: newStartTime)
+                        selectedStartMinute = calendar.component(.minute, from: newStartTime)
+                        if startTime >= endTime {
+                            endTime = calendar.date(byAdding: .minute, value: 1, to: startTime)!
+                        }
+                    }
                     .disabled(!notificationsEnabled)
                 DatePicker("Ending time", selection: $endTime, displayedComponents: [.hourAndMinute])
+                    .onChange(of: endTime) { newEndTime in
+                        let selectedEndHour = calendar.component(.hour, from: newEndTime)
+                        let selectedEndMinute = calendar.component(.minute, from: newEndTime)
+                        if selectedEndHour < selectedStartHour || (selectedEndHour == selectedStartHour && selectedEndMinute < selectedStartMinute) {
+                            endTime = calendar.date(byAdding: .minute, value: 1, to: startTime)!
+                        }
+                    }
                     .disabled(!notificationsEnabled)
+
+
             }
             
             Section(header: Text("Time interval")) {
                 Picker("Select interval", selection: $intervalPickerIndex) {
                     ForEach(0..<intervals.count) { index in
-                        switch intervals[index] {
+                        let interval = intervals[index]
+                        let isValid = isIntervalValid(for: interval)
+                        switch interval {
                         case 1:
-                            Text("1 minute")
+                            Text("1 minute").tag(index)
+                                .opacity(isValid ? 1.0 : 0.5)
                         case 5:
-                            Text("5 minutes")
+                            Text("5 minutes").tag(index)
+                                .opacity(isValid ? 1.0 : 0.5)
                         case 15:
-                            Text("15 minutes")
+                            Text("15 minutes").tag(index)
+                                .opacity(isValid ? 1.0 : 0.5)
                         case 30:
-                            Text("30 minutes")
+                            Text("30 minutes").tag(index)
+                                .opacity(isValid ? 1.0 : 0.5)
                         case 60:
-                            Text("1 hour")
+                            Text("1 hour").tag(index)
+                                .opacity(isValid ? 1.0 : 0.5)
                         case 120:
-                            Text("2 hours")
+                            Text("2 hours").tag(index)
+                                .opacity(isValid ? 1.0 : 0.5)
                         case 180:
-                            Text("3 hours")
+                            Text("3 hours").tag(index)
+                                .opacity(isValid ? 1.0 : 0.5)
                         default:
-                            Text("\(intervals[index]) minutes")
+                            Text("\(interval) minutes").tag(index)
                         }
                     }
                 }
                 .pickerStyle(InlinePickerStyle())
                 .labelsHidden()
-                .disabled(!notificationsEnabled)
+                .disabled(!notificationsEnabled && !canSave)
+                .onChange(of: intervalPickerIndex) { newIndex in
+                    if !isIntervalValid(for: intervals[newIndex]) {
+                        intervalPickerIndex = intervals.firstIndex(where: { isIntervalValid(for: $0) }) ?? 0
+                    }
+                }
             }
-            
+
             Section {
                 Button("Reset to saved preferences") {
                     resetToSavedPreferences()
@@ -171,6 +206,16 @@ struct NotificationSettingsView: View {
         interval = intervals[intervalPickerIndex]
     }
     
+    private func filteredIntervals() -> [Int] {
+        let timeDifference = calendar.dateComponents([.minute], from: startTime, to: endTime).minute!
+        return intervals.filter { $0 <= timeDifference }
+    }
+    
+    private func isIntervalValid(for interval: Int) -> Bool {
+        let timeDifference = calendar.dateComponents([.minute], from: startTime, to: endTime).minute!
+        return interval <= timeDifference
+    }
+
     
 }
 
