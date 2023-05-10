@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomTabView: View {
     @Binding var selectedTab: Tab
-    @Binding var showingCameraSheet: Bool // aggiungi questo binding
+    @Binding var showingCameraSheet: Bool 
     
     var body: some View {
         HStack {
