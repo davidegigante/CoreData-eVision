@@ -29,6 +29,7 @@ struct PrimaryView: View {
                     BuildingView(building: building)
                 } else {
                     VStack {}
+                        .background()
                         .scaledToFill()
                         .edgesIgnoringSafeArea(.all)
                 }

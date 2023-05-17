@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomTabView: View {
     @Binding var selectedTab: Tab
-    @Binding var showingCameraSheet: Bool 
+    @Binding var showingCameraSheet: Bool
     
     var body: some View {
         HStack {
@@ -27,6 +27,7 @@ struct CustomTabView: View {
                         .padding(.top)
                     Text("Home")
                         .font(.caption2)
+                        .padding(.bottom)
                 }
                 .foregroundColor(selectedTab == .home ? .blue : .primary)
             }
@@ -45,6 +46,7 @@ struct CustomTabView: View {
                         .padding(.top)
                     Text("Scan")
                         .font(.caption2)
+                        .padding(.bottom)
                 }
                 .foregroundColor(selectedTab == .camera ? .blue : .primary)
             }
@@ -63,6 +65,7 @@ struct CustomTabView: View {
                         .padding(.top)
                     Text("Settings")
                         .font(.caption2)
+                        .padding(.bottom)
                 }
                 .foregroundColor(selectedTab == .settings ? .blue : .primary)
             }
